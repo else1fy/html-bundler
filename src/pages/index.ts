@@ -1,5 +1,6 @@
 import { createApp, ref } from 'vue'
 import MyButton from './MyButton.vue'
+import './MyButton.scss'
 
 createApp({
     setup() {

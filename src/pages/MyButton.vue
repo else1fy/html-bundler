@@ -9,5 +9,3 @@
 
     const text = ref('Button')
 </script>
-
-<style src="./MyButton.scss"></style>
