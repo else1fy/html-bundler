@@ -1,5 +1,6 @@
 import { createApp, ref } from 'vue'
 import MyButton from './MyButton.vue'
+import './index.scss'
 
 createApp({
     setup() {
@@ -7,4 +8,6 @@ createApp({
             title: ref('Hello world!')
         }
     }
-}).component('my-button', MyButton).mount('#app')
+})
+    .component('my-button', MyButton)
+    .mount('#app')

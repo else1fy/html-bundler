@@ -10,4 +10,4 @@
     const text = ref('Button')
 </script>
 
-<style src="./MyButton.scss"></style>
+<style src="./MyButton.scss" lang="scss"></style>

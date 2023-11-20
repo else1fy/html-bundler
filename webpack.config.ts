@@ -13,7 +13,18 @@ const config: Configuration = {
             {
                 exclude: /node_modules/,
                 test: /\.(js|ts)$/i,
-                use: ['swc-loader'],
+                use: [
+                    {
+                        loader: 'swc-loader',
+                        options: {
+                            jsc: {
+                                parser: {
+                                    syntax: "typescript",
+                                },
+                            },
+                        },
+                    },
+                ],
             },
             {
                 test: /\.(sass|scss)$/i,
@@ -42,9 +53,15 @@ const config: Configuration = {
     plugins: [
         new VueLoaderPlugin(),
         new HtmlBundlerPlugin({
-            entry: 'src/pages/'
-        })
+            entry: 'src/pages/',
+        }),
     ],
+    resolve: {
+        alias: {
+            vue: 'vue/dist/vue.esm-bundler',
+        },
+        extensions: ['.ts', '...'],
+    },
 }
 
 export default config
