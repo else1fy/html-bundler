@@ -1,13 +1,20 @@
 <template>
-    <button>
-        {{ text }}
+    <button class="button" @click="emits('custom:click')">
+        <div :class="$style.text">
+            {{ props.text }}
+        </div>
     </button>
 </template>
 
-<script setup>
-    import { ref } from 'vue'
-
-    const text = ref('Button')
+<script setup lang="ts">
+    const emits = defineEmits<{ (e: 'custom:click'): void }>()
+    const props = defineProps<{
+        text: string
+    }>()
 </script>
 
-<style src="./MyButton.scss" lang="scss"></style>
+<style module>
+    .text {
+        color: tomato;
+    }
+</style>

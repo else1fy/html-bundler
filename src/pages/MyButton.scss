@@ -1,3 +1,5 @@
-button {
-    color: tomato;
+.button {
+    &__text {
+        color: tomato;
+    }
 }

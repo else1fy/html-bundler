@@ -27,8 +27,24 @@ const config: Configuration = {
                 ],
             },
             {
-                test: /\.(sass|scss)$/i,
-                use: ['css-loader', 'sass-loader'],
+                test: /\.(css|sass|scss)$/i,
+                oneOf: [
+                    {
+                        resourceQuery: /module/,
+                        use: [
+                            {
+                                loader: 'css-loader',
+                                options: {
+                                    modules: true,
+                                },
+                            },
+                            'sass-loader',
+                        ],
+                    },
+                    {
+                        use: ['css-loader', 'sass-loader']
+                    }
+                ]
             },
             {
                 test: /\.(jpe?g|png|svg)$/,
