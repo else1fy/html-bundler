@@ -30,6 +30,10 @@ const config: Configuration = {
                 test: /\.(css|sass|scss)$/i,
                 oneOf: [
                     {
+                        resourceQuery: /vue/,
+                        use: ['vue-style-loader', 'css-loader', 'sass-loader'],
+                    },
+                    {
                         resourceQuery: /module/,
                         use: [
                             {
